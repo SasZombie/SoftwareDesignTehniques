@@ -12,6 +12,10 @@
 #define PORT 8080
 #define MAX_CLIENTS 10
 
+void handle_client(int client_socket);
+HTTPResponse handleRequest(const HTTPHeader &head);
+
+
 HTTPResponse handleRequest(const HTTPHeader &head)
 {
 
