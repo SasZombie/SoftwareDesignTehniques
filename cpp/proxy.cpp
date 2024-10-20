@@ -9,6 +9,5 @@ HTTPResponse AuthProxy::handleRequest(const HTTPHeader &request) const noexcept
     {
         return realStrategy->handleRequest(request);
     }   
-    std::cout << "Asta Fac \n";
     return createResponse(StatusCode::UNAUTHORIZED);
 }
