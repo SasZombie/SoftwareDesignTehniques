@@ -9,9 +9,6 @@
 #include "headers/header.hpp"
 #include "headers/context.hpp"
 
-#define PORT 8080
-#define MAX_CLIENTS 10
-
 void handle_client(int client_socket);
 HTTPResponse handleRequest(const HTTPHeader &head);
 
@@ -71,6 +68,7 @@ void handle_client(int client_socket)
 int main()
 {
     int server_fd, new_socket;
+    constexpr size_t PORT = 8080, MAX_CLIENTS = 10;
     struct sockaddr_in address;
     int opt = 1;
     int addrlen = sizeof(address);
