@@ -41,6 +41,7 @@ HTTPResponse handleRequest(const HTTPHeader &head)
         return HTTPResponse{};
     }
 }
+
 void handle_client(int client_socket)
 {
     HTTPHeader head;
@@ -68,7 +69,7 @@ void handle_client(int client_socket)
 int main()
 {
     int server_fd, new_socket;
-    constexpr size_t PORT = 8080, MAX_CLIENTS = 10;
+    constexpr size_t Port = 8080, MAX_CLIENTS = 10;
     struct sockaddr_in address;
     int opt = 1;
     int addrlen = sizeof(address);
@@ -87,7 +88,7 @@ int main()
 
     address.sin_family = AF_INET;
     address.sin_addr.s_addr = INADDR_ANY;
-    address.sin_port = htons(PORT);
+    address.sin_port = htons(Port);
 
     if (bind(server_fd, (struct sockaddr *)&address, sizeof(address)) < 0)
     {
@@ -101,7 +102,7 @@ int main()
         exit(EXIT_FAILURE);
     }
 
-    std::cout << "Server is listening on port " << PORT << '\n';
+    std::cout << "Server is listening on port " << Port << '\n';
 
     std::vector<std::jthread> client_threads;
 

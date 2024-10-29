@@ -6,10 +6,10 @@
 
 #include "headers/header.hpp"
 
-#define PORT 8080
-
 int main()
 {
+    constexpr size_t Port = 8080;
+
     int sock = 0;
     struct sockaddr_in serv_addr;
 
@@ -20,7 +20,7 @@ int main()
     }
 
     serv_addr.sin_family = AF_INET;
-    serv_addr.sin_port = htons(PORT);
+    serv_addr.sin_port = htons(Port);
 
     if (inet_pton(AF_INET, "127.0.0.1", &serv_addr.sin_addr) <= 0)
     {
