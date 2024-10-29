@@ -33,7 +33,7 @@ HTTPResponse HttpRequestContext::processRequest(const HTTPHeader &request) noexc
         {
             attach(problemLogger);
 
-            notify("Someone tried to access while UNAUTHORIZED\nThis issue will be reposted\n");
+            notify("Someone tried to make a request of type: " + std::to_string(static_cast<size_t>(request.type)) + " while UNAUTHORIZED\n");
 
             detach(problemLogger);
         }
